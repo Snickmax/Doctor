@@ -17,7 +17,9 @@
 # Comandos Django
 
 1. crear proyecto
-    django-admin startproject Doctor .
+    django-admin startproject nameproyect .
 2. correr proyecto
     python manage.py runserver
+2. crear app
+    python manage.py startapp nameapp
     
