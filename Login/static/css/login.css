@@ -1,0 +1,35 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+.login-background-color {
+    background: linear-gradient(4deg, #293c50 0%, #000000 100%);
+}
+
+.card-title {
+    color: rgb(255, 255, 255);
+}
+
+.title-underline {
+    border-top: 2px solid rgb(197, 197, 197);
+    border-bottom: 2px solid rgb(197, 197, 197);
+    line-height:2em;
+}
+
+.form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-floating input[type='password'] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-floating input[type='text'] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.card {
+    background-color: #3e4e67;
+}

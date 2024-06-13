@@ -22,4 +22,8 @@
     python manage.py runserver
 2. crear app
     python manage.py startapp nameapp
-    
+3. migrate DB
+    python manage.py makemigrations
+    python manage.py migrate
+4. crear usuario
+    python manage.py createsuperuser
