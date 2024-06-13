@@ -1,4 +1,8 @@
 # Doctor
+Se necesita Sqlite3 protable
+    https://download.sqlitebrowser.org/SQLiteDatabaseBrowserPortable_3.12.2_English.paf.exe
+
+se creo con python^3.12.2
 
 # Crear venv Instalando Virtualenv
 1. intalar:
