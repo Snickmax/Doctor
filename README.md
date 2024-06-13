@@ -20,3 +20,4 @@
     django-admin startproject Doctor .
 2. correr proyecto
     python manage.py runserver
+    
