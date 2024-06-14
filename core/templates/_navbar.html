@@ -1,0 +1,47 @@
+{% if user.is_authenticated %}
+{% load static %}
+<nav class="navbar navbar-expand-lg custom-navbar-color border-bottom border-body ghost" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="nav-link navbar-brand" href="/home/dashboard/">
+      <img src="{% static 'img/logo.jpg' %}" alt="Skytsunami" class="img-fluid" alt="" style="max-height: 50px; border-radius:30%;">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'dashboardC' or request.resolver_match.url_name == 'finalizados_cancelados' %}active disabled{% endif %}"
+            href="/home/dashboardC/">Dashboard Citas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'dashboardU' %}active disabled{% endif %}"
+            href="/home/dashboardU/">Usuarios</a>
+        </li>
+        
+      </ul>
+      <div class="ms-auto">
+        <!-- Perfil -->
+        <label class="navbar-brand">Hola, {{ user.first_name }}</label>
+        <!-- Cerrar Sesion -->
+        <button id="btn-pop" type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover"
+          data-bs-trigger="focus" title="Cerrar Sesión"
+          data-bs-content="<p>¿Estas seguro que quieres cerrar sesión?</p><div class='d-flex justify-content-end'><a class='btn btn-primary me-2 btn-cancel'>Cancelar</a><a class='btn btn-primary btn-danger btn-logout'>Cerrar Sesión</a></div>"
+          data-bs-html="true">
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="modalLogout" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body d-flex align-items-center justify-content-center">
+        <span id="spinnerLogout" class="spinner-border" role="status"></span>
+        <h4 class="mb-0 ms-2">Cerrando Sesión...</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}

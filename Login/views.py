@@ -12,7 +12,7 @@ from django.contrib.auth import logout as auth_logout
 
 def login(request):
     if request.user.is_authenticated:
-        return redirect('Home')
+        return redirect('dashboardC')
         
     if request.method == 'GET':
         return render(request, 'login.html', {"form": AuthenticationForm})

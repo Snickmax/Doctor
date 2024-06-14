@@ -6,4 +6,4 @@ class usuarios(AbstractUser):
     last_name2 = models.CharField(max_length=150, default="")
 
     def __str__(self):
-        return self.username + " - " + self.area.nombre
+        return self.username

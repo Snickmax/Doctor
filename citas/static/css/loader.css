@@ -1,0 +1,26 @@
+.table-container {
+    position: relative; /* Asegúrate de que el contenedor de la tabla tenga una posición relativa */
+    overflow: auto !important;
+}
+
+#loader {
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 12px solid #444444;
+    width: 70px;
+    height: 70px;
+    animation: spin 1s linear infinite;
+    position: absolute; /* Cambiado a absoluto */
+    top: 50%; /* Centrado verticalmente */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste para centrar exactamente en el centro */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg); /* Añadido para asegurar que la animación comience desde 0 */
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

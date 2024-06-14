@@ -1,0 +1,115 @@
+<div class="container-fluid">
+    <form id="registroForm" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- Nombre de Usuario -->
+      <div class="form-floating">
+        <input
+          id="username"
+          type="text"
+          name="username"
+          class="form-control"
+          placeholder="Nombre de usuario"
+          maxlength="150"
+          required
+        />
+        <label for="username">Nombre de usuario</label>
+        <div class="invalid-feedback">Por favor ingrese un nombre de usuario.</div>
+      </div>
+      <!-- Primer Nombre -->
+      <div class="form-floating" style="margin-top: 10px">
+        <input
+          id="first_name"
+          type="text"
+          name="first_name"
+          class="form-control"
+          placeholder="Nombre"
+          maxlength="150"
+          required
+        />
+        <label for="first_name">Nombre</label>
+        <div class="invalid-feedback"></i>Por favor ingrese el nombre.</div>
+      </div>
+      <!-- Primer Apellido -->
+      <div class="form-floating" style="margin-top: 10px">
+        <input
+          id="last_name"
+          type="text"
+          name="last_name"
+          class="form-control"
+          placeholder="Apellido paterno"
+          maxlength="150"
+          required
+        />
+        <label for="last_name">Apellido paterno</label>
+        <div class="invalid-feedback"></i>Por favor ingrese el apellido paterno.</div>
+      </div>
+      <!-- Segundo Apellido -->
+      <div class="form-floating" style="margin-top: 10px">
+        <input
+          id="last_name2"
+          type="text"
+          name="last_name2"
+          class="form-control"
+          placeholder="Apellido materno"
+          maxlength="150"
+          required
+        />
+        <label for="last_name2">Apellido materno</label>
+        <div class="invalid-feedback"></i>Por favor ingrese el apellido materno.</div>
+      </div>
+      <!-- Correo -->
+      <div class="form-floating" style="margin-top: 10px">
+        <input
+          id="email"
+          type="email"
+          name="email"
+          class="form-control"
+          placeholder="Correo"
+          maxlength="254"
+          required
+        />
+        <label for="email">Correo</label>
+        <div class="invalid-feedback"></i>Por favor ingrese el correo.</div>
+      </div>
+      <!-- Contraseña 1 -->
+      <div class="form-floating" style="margin-top: 10px">
+        <input
+          id="password1"
+          type="password"
+          name="password1"
+          class="form-control"
+          placeholder="Contraseña"
+          maxlength="128"
+          required
+        />
+        <label for="password1">Contraseña</label>
+        <div class="invalid-feedback"></i>Por favor ingrese la contraseña.</div>
+      </div>
+      <!-- Contraseña 2 -->
+      <div class="form-floating" style="margin-top: 10px">
+        <input
+          id="password2"
+          type="password"
+          name="password2"
+          class="form-control"
+          placeholder="Confirmar contraseña"
+          maxlength="128"
+          required
+        />
+        <label for="password2">Confirmar contraseña</label>
+        <div class="invalid-feedback"></i>Por favor confirme la contraseña.</div>
+      </div>
+      <div
+        class="alert alert-success"
+        role="alert"
+        style="display: none; margin-top: 10px"
+      ></div>
+      <!-- Boton -->
+      <div style="text-align: right">
+        <button id="submitButton" type="submit" class="btn btn-primary btn-lg" style="margin-top: 10px">
+          <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
+          Registrar
+        </button>
+      </div>
+    </form>
+  </div>

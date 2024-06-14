@@ -1,0 +1,123 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+.logo {
+    border: 1px solid rgb(255, 255, 255); /* Ajusta el grosor y el color del borde según tus preferencias */
+    border-radius: 50%;
+    margin: 0 auto; /* Esto centra el contenedor horizontalmente */
+    text-align: center; /* Esto centra el contenido del contenedor */
+    padding: 5px; /* Ajusta el relleno interior del contenedor según tus preferencias */
+    color: white;
+}
+
+.navbar-brand:hover{
+    color: white;
+}
+  
+.custom-navbar-color {
+    background-color: #3e4e67;
+    /* Otros estilos que desees aplicar */
+}
+
+.footerA {
+    text-decoration: none;
+}
+
+.footerA:hover {
+    text-decoration: underline;
+}
+
+.ms-auto {
+    display: flex;
+    align-items: center;
+}
+
+.notif-container {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    border: 1px solid #c9c9c9;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.notif-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notif-date {
+    color: gray;
+    font-size: 0.8em;
+    padding-top: 3px;
+    margin-bottom: 0px;
+}
+
+.notif-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 10px;
+    height: 10px;
+}
+
+#style-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+}
+
+.notification-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.notification-icon .fa-bell {
+    font-size: 1.5em;
+    /* Ajusta este valor según tus necesidades */
+}
+
+.notification-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 1px 5px;
+    min-width: 20px;
+    text-align: center;
+    font-size: 0.75em;
+}
+
+.new-notification {
+    background-color: #d7eff8;
+    /* Un color de fondo claro */
+    border-color: #c6eaf5;
+    /* Un color de borde que combine con el color de fondo */
+}
+
+.notification-icon .bi-clipboard2-plus-fill {
+    margin-right: 10px;
+    font-size: 1.5em;
+    /* Agrega un margen a la derecha del icono */
+}
+
+.btn-read-all {
+    border-radius: 0%;
+}

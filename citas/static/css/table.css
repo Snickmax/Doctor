@@ -1,0 +1,184 @@
+.table-title {
+    margin-bottom: 24px;
+    /* Agrega un margen inferior de 20px al título */
+}
+
+#table-user,
+#table-office,
+#table-tipo,
+#table-events {
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    /* Añade un borde negro de 1 píxel en la parte superior de la tabla */
+}
+
+#table-user thead th,
+#table-office thead th,
+#table-tipo thead th,
+#table-events thead th {
+    border-bottom: 1px solid #dee2e6;
+    /* Añade un borde negro de 1 píxel en la parte superior de la tabla */
+}
+
+td,
+th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.input-group-text {
+    border-right: none;
+    /* Elimina el borde */
+    background-color: transparent;
+    /* Fondo transparente */
+}
+
+/* Estilos para el input */
+.search-input {
+    border-left: none;
+    /* Elimina el borde derecho */
+    border-radius: 4px;
+    /* Ajusta el radio de los bordes */
+}
+
+.round-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-tooltip .tooltip-inner {
+    background-color: #000000;
+    /* Color de fondo del tooltip */
+    color: #fff;
+    /* Color del texto del tooltip */
+    border-radius: 4px;
+    /* Borde redondeado del tooltip */
+    padding: 8px 12px;
+    /* Espaciado interno del tooltip */
+}
+
+.custom-tooltip .tooltip-arrow {
+    border-top-color: #000000 !important;
+    /* Color de la flecha del tooltip */
+}
+
+/* Botones de paginacion */
+
+/* Estilo para los botones numéricos de paginación */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 50%;
+    /* Hace los botones circulares */
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    /* Agrega sombreado */
+    padding: 5px 12px;
+    /* Ajusta el espaciado interno del botón */
+    margin-top: 15px;
+    /* Añade espacio arriba del botón */
+    margin-right: 5px;
+    /* Añade espacio a la derecha del botón */
+    margin-left: 5px;
+    /* Añade espacio a la izquierda del botón */
+}
+
+/* Estilo para los botones numéricos de paginación cuando se presionan */
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+    background-color: #000 !important;
+    /* Cambia el color de fondo a negro */
+    color: #000000 !important;
+    /* Cambia el color del texto a blanco */
+}
+
+/* Estilo para los botones "Siguiente" y "Anterior" */
+.dataTables_wrapper .dataTables_paginate .paginate_button.next,
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous {
+    background: none !important;
+    /* Elimina el color de fondo */
+    color: #000 !important;
+    /* Cambia el color del texto */
+    border: none;
+    /* Elimina el borde */
+    box-shadow: none;
+    /* Elimina el sombreado */
+}
+
+/* Estilo para los botones "Siguiente" y "Anterior" que no están deshabilitados */
+.dataTables_wrapper .dataTables_paginate .paginate_button.next:not(.disabled),
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous:not(.disabled) {
+    color: #000 !important;
+    /* Cambia el color del texto */
+}
+
+/* Estilo para los botones "Siguiente" y "Anterior" que no están deshabilitados al pasar el mouse */
+.dataTables_wrapper .dataTables_paginate .paginate_button.next:not(.disabled):hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous:not(.disabled):hover {
+    background: none !important;
+    /* Elimina el color de fondo al pasar el mouse */
+    color: #ff0000 !important;
+    /* Cambia el color del texto al pasar el mouse a rojo */
+    text-decoration: underline;
+    /* Agrega un subrayado al texto */
+}
+
+/* Estilo para los botones "Siguiente" y "Anterior" que están deshabilitados */
+.dataTables_wrapper .dataTables_paginate .paginate_button.next.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous.disabled {
+    color: #ccc !important;
+    /* Cambia el color del texto a gris */
+}
+
+/* Estilo para los botones numéricos de paginación no seleccionados */
+.dataTables_wrapper .dataTables_paginate .paginate_button:not(.current) {
+    background: none !important;
+    /* Elimina el color de fondo */
+    border: none;
+    /* Elimina el borde */
+    box-shadow: none;
+    /* Elimina el sombreado */
+    color: #000 !important;
+    /* Cambia el color del texto a negro */
+}
+
+/* Estilo para los botones numéricos de paginación no seleccionados al pasar el mouse */
+.dataTables_wrapper .dataTables_paginate .paginate_button:not(.current):hover {
+    background: none !important;
+    /* Elimina el color de fondo al pasar el mouse */
+    color: #ff0000 !important;
+    /* Cambia el color del texto al pasar el mouse a rojo */
+    text-decoration: underline;
+    /* Agrega un subrayado al texto */
+}
+
+/* Estilo para el botón numérico de paginación actual */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    border-radius: 50%;
+    /* Hace el botón circular */
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    /* Agrega sombreado */
+    padding: 5px 12px;
+    /* Ajusta el espaciado interno del botón */
+    text-align: center;
+    /* Centra el texto del botón */
+    margin-right: 5px;
+    /* Añade espacio a la derecha del botón */
+    margin-left: 5px;
+    /* Añade espacio a la izquierda del botón */
+    background-color: #000 !important;
+    /* Cambia el color de fondo a negro */
+    color: #000 !important;
+    /* Cambia el color del texto a blanco */
+}
+
+.dataTables_wrapper .dataTables_info {
+    margin-top: 15px;
+}

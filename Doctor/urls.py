@@ -23,4 +23,5 @@ urlpatterns = [
     # login
     path('', RedirectView.as_view(pattern_name='login', permanent=False)),
     path('', include('login.urls')),
+    path('home/', include('citas.urls')),
 ]
