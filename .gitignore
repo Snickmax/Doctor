@@ -3,3 +3,4 @@
 /login/migrations/__pycache__
 /citas/__pycache__
 /citas/migrations/__pycache__
+db.sqlite3
