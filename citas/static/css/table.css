@@ -3,19 +3,13 @@
     /* Agrega un margen inferior de 20px al título */
 }
 
-#table-user,
-#table-office,
-#table-tipo,
-#table-events {
+#table-patient{
     border-top: 1px solid #dee2e6;
     border-bottom: 1px solid #dee2e6;
     /* Añade un borde negro de 1 píxel en la parte superior de la tabla */
 }
 
-#table-user thead th,
-#table-office thead th,
-#table-tipo thead th,
-#table-events thead th {
+#table-patient thead th {
     border-bottom: 1px solid #dee2e6;
     /* Añade un borde negro de 1 píxel en la parte superior de la tabla */
 }
@@ -77,7 +71,7 @@ th {
 
 /* Estilo para los botones numéricos de paginación */
 .dataTables_wrapper .dataTables_paginate .paginate_button {
-    border-radius: 50%;
+    border-radius: 10%;
     /* Hace los botones circulares */
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     /* Agrega sombreado */
@@ -161,7 +155,7 @@ th {
 
 /* Estilo para el botón numérico de paginación actual */
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-    border-radius: 50%;
+    border-radius: 10%;
     /* Hace el botón circular */
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     /* Agrega sombreado */
@@ -169,9 +163,9 @@ th {
     /* Ajusta el espaciado interno del botón */
     text-align: center;
     /* Centra el texto del botón */
-    margin-right: 5px;
-    /* Añade espacio a la derecha del botón */
-    margin-left: 5px;
+    margin: 5px;
+    
+    margin-bottom: 10px;
     /* Añade espacio a la izquierda del botón */
     background-color: #000 !important;
     /* Cambia el color de fondo a negro */
@@ -180,5 +174,5 @@ th {
 }
 
 .dataTables_wrapper .dataTables_info {
-    margin-top: 15px;
+    margin-top: 10px;
 }

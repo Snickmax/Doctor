@@ -1,0 +1,90 @@
+<div class="container-fluid">
+  <form id="registroForm" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- RUT -->
+    <div class="form-floating" style="margin-top: 10px">
+      <input id="rut" type="text" name="rut" class="form-control" placeholder="Rut" maxlength="12" required />
+      <label for="rut">Rut</label>
+      <div class="invalid-feedback"></i>Por favor ingrese el rut.</div>
+    </div>
+    <!-- Primer Nombre -->
+    <div class="form-floating" style="margin-top: 10px">
+      <input id="first_name" type="text" name="first_name" class="form-control" placeholder="Nombre" maxlength="50"
+        required />
+      <label for="first_name">Nombre</label>
+      <div class="invalid-feedback"></i>Por favor ingrese el nombre.</div>
+    </div>
+    <!-- Primer Apellido -->
+    <div class="form-floating" style="margin-top: 10px">
+      <input id="last_name" type="text" name="last_name" class="form-control" placeholder="Apellido paterno"
+        maxlength="50" required />
+      <label for="last_name">Apellido paterno</label>
+      <div class="invalid-feedback"></i>Por favor ingrese el apellido paterno.</div>
+    </div>
+    <!-- Segundo Apellido -->
+    <div class="form-floating" style="margin-top: 10px">
+      <input id="last_name2" type="text" name="last_name2" class="form-control" placeholder="Apellido materno"
+        maxlength="50" required />
+      <label for="last_name2">Apellido materno</label>
+      <div class="invalid-feedback"></i>Por favor ingrese el apellido materno.</div>
+    </div>
+    <!-- Género -->
+    <div class="form-floating" style="margin-top: 10px">
+      <select id="gender" name="gender" class="form-control" required>
+        <option value="" selected disabled>Seleccione Género</option>
+        <option value="M">Masculino</option>
+        <option value="F">Femenino</option>
+        <option value="O">Otro</option>
+      </select>
+      <label for="gender">Género</label>
+      <div class="invalid-feedback">Por favor seleccione el género.</div>
+    </div>
+    <!-- Fecha de nacimiento -->
+    <div class="form-floating" style="margin-top: 10px">
+      <input id="date_of_birth" type="date" name="date_of_birth" class="form-control" placeholder="Fecha de nacimiento"
+        maxlength="254" required />
+      <label for="date_of_birth">Fecha de nacimiento</label>
+      <div class="invalid-feedback"></i>Por favor ingrese la Fecha de nacimiento.</div>
+    </div>
+    <!-- Correo -->
+    <div class="form-floating" style="margin-top: 10px">
+      <input id="email" type="email" name="email" class="form-control" placeholder="Correo" maxlength="254" required />
+      <label for="email">Correo</label>
+      <div class="invalid-feedback"></i>Por favor ingrese el correo.</div>
+    </div>
+    <!-- Numero -->
+    <div class="form-floating" style="margin-top: 10px">
+      <input id="phone_number" type="text" name="phone_number" class="form-control" placeholder="Celular" maxlength="15"
+        required />
+      <label for="phone_number">Celular</label>
+      <div class="invalid-feedback"></i>Por favor ingrese el Genero.</div>
+    </div>
+    <!-- Domicilio -->
+    <div class="form-floating" style="margin-top: 10px">
+      <input id="address" type="text" name="address" class="form-control" placeholder="Domicilio" maxlength="150"
+        required />
+      <label for="address">Domicilio</label>
+      <div class="invalid-feedback"></i>Por favor ingrese el Domicilio.</div>
+    </div>
+    <!-- Ciudad -->
+    <div class="form-floating" style="margin-top: 10px">
+      <input id="city" type="text" name="city" class="form-control" placeholder="Ciudad" maxlength="50" required />
+      <label for="city">Ciudad</label>
+      <div class="invalid-feedback"></i>Por favor ingrese el Ciudad.</div>
+    </div>
+    <!-- Region -->
+    <div class="form-floating" style="margin-top: 10px">
+      <input id="state" type="text" name="state" class="form-control" placeholder="Region" maxlength="50" required />
+      <label for="state">Region</label>
+      <div class="invalid-feedback"></i>Por favor ingrese el Region.</div>
+    </div>
+    <!-- Boton -->
+    <div style="text-align: right">
+      <button id="submitButton" type="submit" class="btn btn-primary btn-lg" style="margin-top: 10px">
+        <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+          style="display: none;"></span>
+        Registrar
+      </button>
+    </div>
+  </form>
+</div>

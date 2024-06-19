@@ -1,6 +1,6 @@
 {% if user.is_authenticated %}
 {% load static %}
-<nav class="navbar navbar-expand-lg custom-navbar-color border-bottom border-body ghost" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg custom-navbar-color border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="nav-link navbar-brand" href="/home/dashboard/">
       <img src="{% static 'img/logo.jpg' %}" alt="Skytsunami" class="img-fluid" alt="" style="max-height: 50px; border-radius:30%;">
@@ -12,8 +12,8 @@
             href="/home/dashboardC/">Dashboard Citas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'dashboardU' %}active disabled{% endif %}"
-            href="/home/dashboardU/">Usuarios</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'dashboardP' %}active disabled{% endif %}"
+            href="/home/dashboardP/">Pacientes</a>
         </li>
         
       </ul>

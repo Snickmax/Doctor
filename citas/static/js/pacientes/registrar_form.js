@@ -20,7 +20,7 @@ $(document).ready(function () {
   
       //Envio de datos por AJAX
       $.ajax({
-        url: "/home/registrar_usuario/",
+        url: "/home/registrar_paciente/",
         type: "POST",
         data: formData,
         success: function (response) {
@@ -46,11 +46,6 @@ $(document).ready(function () {
               .join(" ");
             formField.siblings(".invalid-feedback").html(errorMessages);
             formField.addClass("is-invalid");
-          }
-  
-          // Si el campo password2 tiene la clase is-invalid, añade la misma clase a password1
-          if ($("#password2").hasClass("is-invalid")) {
-            $("#password1").addClass("is-invalid");
           }
   
           // Marcar todos los campos del formulario como válidos

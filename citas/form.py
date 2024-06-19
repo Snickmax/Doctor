@@ -1,25 +1,23 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from core.models import usuarios
-from django.utils.translation import gettext_lazy as _
+from core.models import paciente
 
-class FormularioRegistro(UserCreationForm):
+class FormularioPaciente(forms.ModelForm):
     class Meta:
-        model = usuarios
-        fields = ('username', 'first_name', 'last_name', 'last_name2', 'email')
-
+        model = paciente
+        fields = ('rut', 'first_name', 'last_name', 'last_name2', 'gender','email', 'date_of_birth', 'phone_number', 'address', 'city', 'state')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].error_messages = {'unique': 'El nombre de usuario ya está en uso.'}
+        self.fields['rut'].error_messages = {'unique': 'El rut de usuario ya está en uso.'}
         self.fields['email'].error_messages = {'unique': 'El correo ya está en uso.'}
 
-class FormularioEditar(UserChangeForm):
+class FormularioEditar(forms.ModelForm):
     is_active = forms.ChoiceField(choices=[(1, 'Activo'), (0, 'Inactivo')])
+    
     class Meta:
-        model = usuarios
-        fields = ('username', 'first_name', 'last_name', 'last_name2', 'email', 'password')
+        model = paciente
+        fields = ('rut', 'first_name', 'last_name', 'last_name2', 'gender','email', 'date_of_birth', 'phone_number', 'address', 'city', 'state')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].error_messages = {'unique': 'El nombre de usuario ya está en uso.'}
+        self.fields['rut'].error_messages = {'unique': 'El rut de usuario ya está en uso.'}
         self.fields['email'].error_messages = {'unique': 'El correo ya está en uso.'}

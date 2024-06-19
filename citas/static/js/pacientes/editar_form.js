@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#modalBase").on("submit", "#passForm", function (e) {
+    $("#modalBase").on("submit", "#editarForm", function (e) {
         //Previene recarga de pagina y deshabilita botones
         e.preventDefault();
         disableButtons();
@@ -12,7 +12,7 @@ $(document).ready(function () {
         $("#submitButton").addClass("btn-primary");
 
         //Obtiene el ID de usuario y serializa el formulario
-        var userId = $("#submitButton").data("user-id");
+        var patientId = $(this).data("patient-id");
         var form = $(this);
         var formData = $(this).serialize();
 
@@ -21,7 +21,7 @@ $(document).ready(function () {
 
         //Envio de datos por AJAX
         $.ajax({
-            url: "/home/actualizar_pass/" + userId + "/",
+            url: "/home/actualizar_paciente/" + patientId + "/",
             type: "POST",
             data: formData,
             success: function (response) {
@@ -51,6 +51,7 @@ $(document).ready(function () {
                 form.find(".form-control").not(".is-invalid").addClass("is-valid");
                 $("#submitButton").addClass("btn-danger");
 
+                // Ocultar el spinner y habilitar los botones
                 $("#spinner").hide();
                 enableButtons();
             },
