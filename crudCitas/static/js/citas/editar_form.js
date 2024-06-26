@@ -21,7 +21,7 @@ $(document).ready(function () {
 
         //Envio de datos por AJAX
         $.ajax({
-            url: "/home/actualizar_paciente/" + patientId + "/",
+            url: "/home/actualizar_cita/" + patientId + "/",
             type: "POST",
             data: formData,
             success: function (response) {

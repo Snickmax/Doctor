@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'core',
     'login',
     'citas',
+    'crudCitas',
 ]
 
 AUTH_USER_MODEL = 'core.usuarios'
