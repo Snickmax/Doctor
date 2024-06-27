@@ -3,136 +3,62 @@
     {% csrf_token %}
     <div class="row">
 
-      <!-- RUT -->
       <div class="col-md-6">
+        <!-- Seleccionar Paciente Registrado -->
         <div class="form-floating" style="margin-top: 10px">
-          <input id="rut" type="text" name="rut" class="form-control editable" value="{{ form.rut.value }}"
-            placeholder="Rut" maxlength="12" required disabled />
-          <label for="rut">Rut</label>
-          <div class="invalid-feedback"></i>Por favor ingrese el rut.</div>
-        </div>
-      </div>
-
-      <!-- Primer Nombre -->
-      <div class="col-md-6">
-        <div class="form-floating" style="margin-top: 10px">
-          <input id="first_name" type="text" name="first_name" class="form-control editable"
-            value="{{ form.first_name.value }}" placeholder="Nombre" maxlength="50" required disabled />
-          <label for="first_name">Nombre</label>
-          <div class="invalid-feedback"></i>Por favor ingrese el nombre.</div>
-        </div>
-      </div>
-
-      <!-- Primer Apellido -->
-      <div class="col-md-6">
-        <div class="form-floating" style="margin-top: 10px">
-          <input id="last_name" type="text" name="last_name" class="form-control editable"
-            value="{{ form.last_name.value }}" placeholder="Apellido paterno" maxlength="50" required disabled />
-          <label for="last_name">Apellido paterno</label>
-          <div class="invalid-feedback"></i>Por favor ingrese el apellido paterno.</div>
-        </div>
-      </div>
-
-      <!-- Segundo Apellido -->
-      <div class="col-md-6">
-        <div class="form-floating" style="margin-top: 10px">
-          <input id="last_name2" type="text" name="last_name2" class="form-control editable"
-            value="{{ form.last_name2.value }}" placeholder="Apellido materno" maxlength="50" required disabled />
-          <label for="last_name2">Apellido materno</label>
-          <div class="invalid-feedback"></i>Por favor ingrese el apellido materno.</div>
-        </div>
-      </div>
-
-      <!-- Género -->
-      <div class="col-md-6">
-        <div class="form-floating" style="margin-top: 10px">
-          <select id="gender" name="gender" class="form-control editable" required disabled>
-            <option value="" disabled>Seleccione Género</option>
-            <option value="M" {% if form.gender.value == 'M' %} selected {% endif %}>Masculino</option>
-            <option value="F" {% if form.gender.value == 'F' %} selected {% endif %}>Femenino</option>
-            <option value="O" {% if form.gender.value == 'O' %} selected {% endif %}>Otro</option>
+          <select id="patient" name="patient" class="form-control editable" required disabled>
+            <option value="" selected disabled>Seleccione Paciente</option>
+            {% for patient in pacientes %}
+            <option value="{{ patient.rut }}" {% if form.patient.value == patient.rut %} selected {% endif %}>{{ patient.first_name }} {{ patient.last_name }}</option>
+            {% endfor %}
           </select>
-          <label for="gender">Género</label>
-          <div class="invalid-feedback">Por favor seleccione el género.</div>
+          <label for="patient">Paciente</label>
+          <div class="invalid-feedback">Por favor seleccione un paciente.</div>
+        </div>
+
+        <!-- Fecha de Cita -->
+        <div class="form-floating" style="margin-top: 10px">
+          <input id="date" type="date" name="date" class="form-control editable"
+            value="{{ form.date.value|date:'Y-m-d' }}" placeholder="Fecha de la cita" required disabled />
+          <label for="date">Fecha de cita</label>
+          <div class="invalid-feedback"></i>Por favor ingrese la Fecha de cita.</div>
+        </div>
+
+        <!-- Hora de Cita -->
+        <div class="form-floating" style="margin-top: 10px">
+          <input id="time" type="time" name="time" class="form-control editable" value="{{ form.time.value }}"
+            placeholder="Hora de cita" required disabled />
+          <label for="time">Hora de cita</label>
+          <div class="invalid-feedback"></i>Por favor ingrese la Hora de cita.</div>
         </div>
       </div>
 
-      <!-- Fecha de nacimiento -->
+      <!-- Motivo -->
       <div class="col-md-6">
-        <div class="form-floating" style="margin-top: 10px">
-          <input id="date_of_birth" type="date" name="date_of_birth" class="form-control editable"
-            value="{{ form.date_of_birth.value|date:'Y-m-d' }}" placeholder="Fecha de nacimiento" maxlength="254"
-            required disabled />
-          <label for="date_of_birth">Fecha de nacimiento</label>
-          <div class="invalid-feedback"></i>Por favor ingrese la Fecha de nacimiento.</div>
+        <div class="form-floating" style="margin-top: 10px; height: 100%;">
+          <textarea id="reason" type="text" name="reason" class="form-control editable" placeholder="Motivo"
+            maxlength="254" required disabled style="height: calc(100% - 20px);"> {{ form.reason.value }}</textarea>
+          <label for="reason">Motivo</label>
+          <div class="invalid-feedback"></i>Por favor ingrese el motivo de la consulta.</div>
         </div>
       </div>
 
-      <!-- Correo -->
-      <div class="col-md-6">
-        <div class="form-floating" style="margin-top: 10px">
-          <input id="email" type="email" name="email" class="form-control editable" value="{{ form.email.value }}"
-            placeholder="Correo" maxlength="254" required disabled />
-          <label for="email">Correo</label>
-          <div class="invalid-feedback"></i>Por favor ingrese el correo.</div>
+      <!-- Botones -->
+      <div style="display: flex; justify-content: space-between;">
+        <div style="text-align: right">
+          <button id="editButton" type="button" class="btn btn-primary mt-3 btn-lg">
+            Editar
+          </button>
+          <button id="submitButton" type="submit" class="btn btn-primary mt-3 btn-lg" style="display: none">
+            <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+              style="display: none;"></span>
+            Guardar
+          </button>
+          <button id="cancelButton" type="button" class="btn btn-primary mt-3 btn-lg" style="display: none">
+            Cancelar
+          </button>
         </div>
       </div>
-
-      <!-- Numero -->
-      <div class="col-md-6">
-        <div class="form-floating" style="margin-top: 10px">
-          <input id="phone_number" type="text" name="phone_number" class="form-control editable"
-            value="{{ form.phone_number.value }}" placeholder="Celular" maxlength="15" required disabled />
-          <label for="phone_number">Celular</label>
-          <div class="invalid-feedback"></i>Por favor ingrese el Genero.</div>
-        </div>
-      </div>
-
-      <!-- Domicilio -->
-      <div class="col-md-12">
-        <div class="form-floating" style="margin-top: 10px">
-          <input id="address" type="text" name="address" class="form-control editable" value="{{ form.address.value }}"
-            placeholder="Domicilio" maxlength="150" required disabled />
-          <label for="address">Domicilio</label>
-          <div class="invalid-feedback"></i>Por favor ingrese el Domicilio.</div>
-        </div>
-      </div>
-
-      <!-- Ciudad -->
-      <div class="col-md-6">
-        <div class="form-floating" style="margin-top: 10px">
-          <input id="city" type="text" name="city" class="form-control editable" value="{{ form.city.value }}"
-            placeholder="Ciudad" maxlength="50" required disabled />
-          <label for="city">Ciudad</label>
-          <div class="invalid-feedback"></i>Por favor ingrese el Ciudad.</div>
-        </div>
-      </div>
-
-      <!-- Region -->
-      <div class="col-md-6">
-        <div class="form-floating" style="margin-top: 10px">
-          <input id="state" type="text" name="state" class="form-control editable" value="{{ form.state.value }}"
-            placeholder="Region" maxlength="50" required disabled />
-          <label for="state">Region</label>
-          <div class="invalid-feedback"></i>Por favor ingrese el Region.</div>
-        </div>
-      </div>
-        <!-- Botones -->
-        <div style="display: flex; justify-content: space-between;">
-          <div style="text-align: right">
-            <button id="editButton" type="button" class="btn btn-primary mt-3 btn-lg">
-              Editar
-            </button>
-            <button id="submitButton" type="submit" class="btn btn-primary mt-3 btn-lg" style="display: none">
-              <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
-                style="display: none;"></span>
-              Guardar
-            </button>
-            <button id="cancelButton" type="button" class="btn btn-primary mt-3 btn-lg" style="display: none">
-              Cancelar
-            </button>
-          </div>
-        </div>
   </form>
 </div>
 

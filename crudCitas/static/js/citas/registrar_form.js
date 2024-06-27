@@ -20,7 +20,7 @@ $(document).ready(function () {
   
       //Envio de datos por AJAX
       $.ajax({
-        url: "/home/registrar_cita/",
+        url: "/home/registrar_citas/",
         type: "POST",
         data: formData,
         success: function (response) {

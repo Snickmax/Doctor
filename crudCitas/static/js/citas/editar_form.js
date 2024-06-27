@@ -12,7 +12,7 @@ $(document).ready(function () {
         $("#submitButton").addClass("btn-primary");
 
         //Obtiene el ID de usuario y serializa el formulario
-        var patientId = $(this).data("patient-id");
+        var citaId = $(this).data("cita-id");
         var form = $(this);
         var formData = $(this).serialize();
 
@@ -21,7 +21,7 @@ $(document).ready(function () {
 
         //Envio de datos por AJAX
         $.ajax({
-            url: "/home/actualizar_cita/" + patientId + "/",
+            url: "/home/actualizar_citas/" + citaId + "/",
             type: "POST",
             data: formData,
             success: function (response) {
@@ -38,6 +38,7 @@ $(document).ready(function () {
             error: function (xhr, errmsg, err) {
                 var errors = xhr.responseJSON.errors;
                 // Recorre todos los errores y los muestra en el lugar correcto
+                console.log(errors);
                 for (var field in errors) {
                     var formField = $("#" + field);
                     var errorMessages = errors[field]

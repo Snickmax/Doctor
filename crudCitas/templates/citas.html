@@ -18,7 +18,7 @@
         <button id="btnAgregarCita" type="button" class="btn btn-success btn-open-form tooltip-trigger"
           data-form-type="registro" data-bs-toggle="tooltip" data-bs-placement="bottom"
           data-bs-custom-class="custom-tooltip" data-bs-title="Agregar Cita" data-bs-target="#modalBase">
-          <i class="fa-solid fa-user-plus"></i> Agregar Citas
+          <i class="fa-solid fa-calendar-plus"></i> Agregar Citas
         </button>
       </div>
     </div>
@@ -28,7 +28,8 @@
     <table id="table-cita" class="table table-striped table-bordered shadow-lg" style="visibility: hidden;">
       <thead>
         <tr>
-          <th>Paciente</th>
+          <th>Rut Paciente</th>
+          <th>Nombre Paciente</th>
           <th>Fecha</th>
           <th>Hora</th>
           <th>Motivo</th>
@@ -40,7 +41,10 @@
         {% for cita in citas %}
         <tr>
           <td>
-            {{ cita.patient }}
+            {{ cita.patient.rut }}
+          </td>
+          <td>
+            {{ cita.patient.first_name }} {{ cita.patient.last_name }}
           </td>
           <td>
             {{ cita.date }}
@@ -53,7 +57,7 @@
                 class="btn btn-primary btn-open-form tooltip-trigger round-button me-1 ms-1" data-form-type="editar"
                 data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                 data-bs-title="Editar Cita" data-cita-id="{{ cita.id }}" data-bs-target="#modalBase">
-                <i class="fa-solid fa-user-pen"></i>
+                <i class="fa-solid fa-pen-to-square"></i>
               </button>
             </div>
           </td>
