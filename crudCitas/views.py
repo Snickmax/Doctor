@@ -62,10 +62,12 @@ def cargar_formulario(request):
         form_html = render_to_string("citas/registrar.html", {"form": form, "pacientes": all_patient}, request=request)
     elif form_type == "editar":
         try:
-            citas = get_object_or_404(cita, id=1)
+            citas = get_object_or_404(cita, id=cita_id)
             form = FormularioCitas(instance=citas)
             all_patient = paciente.objects.all()
             titulo_modal = '<i class="fa-solid fa-pen-to-square"></i> Editar cita'
+            print(form)
+            print(cita_id)
             form_html = render_to_string("citas/editar.html", {"form": form, "cita_id": cita_id, "pacientes": all_patient}, request=request)
         except citas.DoesNotExist:
             return JsonResponse({"error": "la cita especificado no existe."}, status=404)
