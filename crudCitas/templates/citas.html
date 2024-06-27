@@ -1,0 +1,79 @@
+{% extends 'base2.html' %}
+{% block content %}
+
+<head>
+  <title>Citas</title>
+</head>
+
+<div class="container" style="max-width: 90%; margin-top: 20px;">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="table-title"><i class="fa-solid fa-calendar-days"></i> Citas</h1>
+    </div>
+    <div class="col-md-6 text-right">
+      <div class="input-group mb-3">
+        <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" id="search-input" class="form-control search-input" placeholder="Buscar..."
+          aria-label="Buscar" aria-describedby="basic-addon2">
+        <button id="btnAgregarCita" type="button" class="btn btn-success btn-open-form tooltip-trigger"
+          data-form-type="registro" data-bs-toggle="tooltip" data-bs-placement="bottom"
+          data-bs-custom-class="custom-tooltip" data-bs-title="Agregar Cita" data-bs-target="#modalBase">
+          <i class="fa-solid fa-calendar-plus"></i> Agregar Citas
+        </button>
+        <button id="btnReporte" type="button"
+                class="btn btn-primary btn-reporte tooltip-trigger round-button me-1 ms-1"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                data-bs-title="Generar reporte" data-bs-target="#modalReport">
+                <i class="fa-solid fa-clipboard-user"></i>
+              </button>
+      </div>
+    </div>
+  </div>
+  <div class="table-container">
+    <div id="loader"></div>
+    <table id="table-cita" class="table table-striped table-bordered shadow-lg" style="visibility: hidden;">
+      <thead>
+        <tr>
+          <th>Rut Paciente</th>
+          <th>Nombre Paciente</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Motivo</th>
+          <th>Acciones</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {% for cita in citas %}
+        <tr>
+          <td>
+            {{ cita.patient.rut }}
+          </td>
+          <td>
+            {{ cita.patient.first_name }} {{ cita.patient.last_name }}
+          </td>
+          <td>
+            {{ cita.date }}
+          </td>
+          <td>{{ cita.time }}</td>
+          <td>{{ cita.reason }}</td>
+          <td>
+            <div class="center-content">
+              <button id="btnEditarCita" type="button"
+                class="btn btn-primary btn-open-form tooltip-trigger round-button me-1 ms-1" data-form-type="editar"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                data-bs-title="Editar Cita" data-cita-id="{{ cita.id }}" data-bs-target="#modalBase">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% include 'modal_base.html' %}
+{% include 'modal_reporte.html' %}
+{% endblock %}

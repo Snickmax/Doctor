@@ -1,15 +1,15 @@
 {% if user.is_authenticated %}
 {% load static %}
-<nav class="navbar navbar-expand-lg custom-navbar-color border-bottom border-body" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg custom-navbar-color border-bottom border-body ghost" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="nav-link navbar-brand" href="/home/dashboard/">
+    <a class="nav-link navbar-brand" href="/home/dashboardC/">
       <img src="{% static 'img/logo.jpg' %}" alt="Skytsunami" class="img-fluid" alt="" style="max-height: 50px; border-radius:30%;">
     </a>
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link {% if request.resolver_match.url_name == 'dashboardC' or request.resolver_match.url_name == 'finalizados_cancelados' %}active disabled{% endif %}"
-            href="/home/dashboardC/">Dashboard Citas</a>
+            href="/home/dashboardC/">Citas</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {% if request.resolver_match.url_name == 'dashboardP' %}active disabled{% endif %}"

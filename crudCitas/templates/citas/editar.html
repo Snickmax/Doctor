@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <form id="editarForm" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+
+      <div class="col-md-6">
+        <!-- Seleccionar Paciente Registrado -->
+        <div class="form-floating" style="margin-top: 10px">
+          <select id="patient" name="patient" class="form-control editable" required disabled>
+            <option value="" selected disabled>Seleccione Paciente</option>
+            {% for patient in pacientes %}
+            <option value="{{ patient.rut }}" {% if form.patient.value == patient.rut %} selected {% endif %}>{{ patient.first_name }} {{ patient.last_name }}</option>
+            {% endfor %}
+          </select>
+          <label for="patient">Paciente</label>
+          <div class="invalid-feedback">Por favor seleccione un paciente.</div>
+        </div>
+
+        <!-- Fecha de Cita -->
+        <div class="form-floating" style="margin-top: 10px">
+          <input id="date" type="date" name="date" class="form-control editable"
+            value="{{ form.date.value|date:'Y-m-d' }}" placeholder="Fecha de la cita" required disabled />
+          <label for="date">Fecha de cita</label>
+          <div class="invalid-feedback"></i>Por favor ingrese la Fecha de cita.</div>
+        </div>
+
+        <!-- Hora de Cita -->
+        <div class="form-floating" style="margin-top: 10px">
+          <input id="time" type="time" name="time" class="form-control editable" value="{{ form.time.value }}"
+            placeholder="Hora de cita" required disabled />
+          <label for="time">Hora de cita</label>
+          <div class="invalid-feedback"></i>Por favor ingrese la Hora de cita.</div>
+        </div>
+      </div>
+
+      <!-- Motivo -->
+      <div class="col-md-6">
+        <div class="form-floating" style="margin-top: 10px; height: 100%;">
+          <textarea id="reason" type="text" name="reason" class="form-control editable" placeholder="Motivo"
+            maxlength="254" required disabled style="height: calc(100% - 20px);"> {{ form.reason.value }}</textarea>
+          <label for="reason">Motivo</label>
+          <div class="invalid-feedback"></i>Por favor ingrese el motivo de la consulta.</div>
+        </div>
+      </div>
+
+      <!-- Botones -->
+      <div style="display: flex; justify-content: space-between;">
+        <div style="text-align: right">
+          <button id="editButton" type="button" class="btn btn-primary mt-3 btn-lg">
+            Editar
+          </button>
+          <button id="submitButton" type="submit" class="btn btn-primary mt-3 btn-lg" style="display: none">
+            <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+              style="display: none;"></span>
+            Guardar
+          </button>
+          <button id="cancelButton" type="button" class="btn btn-primary mt-3 btn-lg" style="display: none">
+            Cancelar
+          </button>
+        </div>
+      </div>
+  </form>
+</div>
+
+<script>
+  $(document).ready(function () {
+    var originalValues = {};
+    document.getElementById("editButton").addEventListener("click", function () {
+      // Habilitar solo los campos con la clase 'editable'
+      Array.from(document.getElementsByClassName("editable")).forEach(function (
+        element
+      ) {
+        // Almacenar el valor original del campo
+        originalValues[element.id] = element.value;
+        if (element.id === 'is_active') {
+          element.disabled = true;
+        } else {
+          element.disabled = false;
+        }
+      });
+
+      // Mostrar los botones "Guardar" y "Cancelar"
+      document.getElementById("submitButton").style.display = "inline";
+      document.getElementById("cancelButton").style.display = "inline";
+      document.getElementById("editButton").style.display = "none";
+      document.getElementById("btnEditarContraseña").style.display = "none";
+    });
+
+    document.getElementById("cancelButton").addEventListener("click", function () {
+      // Deshabilitar los campos del formulario y restablecer a los valores originales
+      Array.from(document.getElementsByClassName("editable")).forEach(function (
+        element
+      ) {
+        element.value = originalValues[element.id];
+        element.disabled = true;
+      });
+
+      //Limpia clases de validacion
+      $(".is-invalid").removeClass("is-invalid");
+      $(".is-valid").removeClass("is-valid");
+      $(".invalid-feedback").html("");
+      $("#submitButton").removeClass("btn-danger");
+      $("#submitButton").addClass("btn-primary");
+
+      // Ocultar los botones "Guardar" y "Cancelar"
+      document.getElementById("submitButton").style.display = "none";
+      document.getElementById("cancelButton").style.display = "none";
+      document.getElementById("editButton").style.display = "inline";
+      document.getElementById("editButton").disabled = false;
+    });
+  });
+</script>

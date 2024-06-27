@@ -56,13 +56,13 @@ def cargar_formulario(request):
     
     if form_type == "registro":
         form = FormularioPaciente()
-        titulo_modal = '<i class="fa-solid fa-patient-plus"></i> Agregar Paciente'
+        titulo_modal = '<i class="fa-solid fa-user-plus"></i> Agregar Paciente'
         form_html = render_to_string("pacientes/registrar.html", {"form": form}, request=request)
     elif form_type == "editar":
         try:
             patient = get_object_or_404(paciente, rut=patient_id)
             form = FormularioPaciente(instance=patient)
-            titulo_modal = '<i class="fa-solid fa-patient-pen"></i> Editar Paciente'
+            titulo_modal = '<i class="fa-solid fa-user-pen"></i> Editar Paciente'
             form_html = render_to_string("pacientes/editar.html", {"form": form, "patient_id": patient_id}, request=request)
         except paciente.DoesNotExist:
             return JsonResponse({"error": "El paciente especificado no existe."}, status=404)

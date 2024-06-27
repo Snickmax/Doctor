@@ -36,5 +36,10 @@ class cita(models.Model):
     time = models.TimeField(verbose_name="Hora")
     reason = models.TextField(verbose_name="Motivo")
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['date', 'time'], name='unique_appointment')
+        ]
+
     def __str__(self):
         return f"Appointment for {self.person.first_name} {self.person.last_name} on {self.date} at {self.time}"

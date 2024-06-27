@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <form id="registroForm" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+
+      <!-- Seleccionar Paciente Registrado -->
+      <div class="col-md-6">
+        <div class="form-floating" style="margin-top: 10px">
+          <select id="patient" name="patient" class="form-control" required>
+            <option value="" selected disabled>Seleccione Paciente</option>
+            {% for patient in pacientes %}
+            <option value="{{ patient.rut }}">{{ patient.first_name }} {{ patient.last_name }}</option>
+            {% endfor %}
+          </select>
+          <label for="patient">Paciente</label>
+          <div class="invalid-feedback">Por favor seleccione un paciente.</div>
+        </div>
+
+        <!-- Fecha de Cita -->
+        <div class="form-floating" style="margin-top: 10px">
+          <input id="date" type="date" name="date" class="form-control" placeholder="Fecha de la cita" required />
+          <label for="date">Fecha de cita</label>
+          <div class="invalid-feedback"></i>Por favor ingrese la Fecha de cita.</div>
+        </div>
+
+        <!-- Hora de Cita -->
+        <div class="form-floating" style="margin-top: 10px">
+          <input id="time" type="time" name="time" class="form-control" placeholder="Hora de cita" required />
+          <label for="time">Hora de cita</label>
+          <div class="invalid-feedback"></i>Por favor ingrese la Hora de cita.</div>
+        </div>
+      </div>
+
+      <!-- Motivo -->
+      <div class="col-md-6">
+        <div class="form-floating" style="margin-top: 10px; height: 100%;">
+          <textarea id="reason" type="text" name="reason" class="form-control" placeholder="Motivo"
+            maxlength="254" required style="height: calc(100% - 20px);"></textarea>
+          <label for="reason">Motivo</label>
+          <div class="invalid-feedback"></i>Por favor ingrese el motivo de la consulta.</div>
+        </div>
+      </div>
+
+      <!-- Boton -->
+      <div style="text-align: right">
+        <button id="submitButton" type="submit" class="btn btn-primary btn-lg" style="margin-top: 10px">
+          <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+            style="display: none;"></span>
+          Registrar
+        </button>
+      </div>
+  </form>
+</div>

@@ -1,0 +1,56 @@
+{% load static %}
+<div class="page-break" style="text-align: center;">
+    <div class="row">
+        <div class="col">
+            <img src="{% static 'img/logo.jpg' %}" alt="Logo" class="img-fluid" style="height: 50px;">
+        </div>
+        <div class="col">
+            <br>
+            <p>AX2 Medic Center</p>
+        </div>
+    </div>
+    <br><br><br><br>
+    <h1>AX2 Medic Center</h1>
+    <img src="{% static 'img/logo.jpg' %}" alt="Logo" class="img-fluid" style="height: 90%;border-radius:30%;">
+
+    <!-- inicio de Reporte -->
+    <br><br><br>
+    <h1>Reporte de Citas del {{ dia }} de {{ mes }} del {{ año }}</h1>
+    <br class="Report"><br class="Report">
+</div>
+{% if citas %}
+<h1>Tabla de Citas del dia</h1>
+<p>A continuación, se reflejarán las citas que se realizaran durante el dia:</p>
+<table id="table-cita" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Rut Paciente</th>
+            <th>Nombre Paciente</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Motivo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cita in citas %}
+        <tr>
+            <td>
+                {{ cita.patient.rut }}
+            </td>
+            <td>
+                {{ cita.patient.first_name }} {{ cita.patient.last_name }}
+            </td>
+            <td>
+                {{ cita.date }}
+            </td>
+            <td>{{ cita.time }}</td>
+            <td>{{ cita.reason }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h3 style="color:rgb(202, 202, 202)!important; text-align:center; padding-right: 8px;">Este Dia no ha realizado citas.
+</h3>
+{% endif %}
