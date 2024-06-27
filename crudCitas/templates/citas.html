@@ -20,6 +20,12 @@
           data-bs-custom-class="custom-tooltip" data-bs-title="Agregar Cita" data-bs-target="#modalBase">
           <i class="fa-solid fa-calendar-plus"></i> Agregar Citas
         </button>
+        <button id="btnReporte" type="button"
+                class="btn btn-primary btn-reporte tooltip-trigger round-button me-1 ms-1"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                data-bs-title="Generar reporte" data-bs-target="#modalReport">
+                <i class="fa-solid fa-clipboard-user"></i>
+              </button>
       </div>
     </div>
   </div>
@@ -69,4 +75,5 @@
 </div>
 
 {% include 'modal_base.html' %}
+{% include 'modal_reporte.html' %}
 {% endblock %}

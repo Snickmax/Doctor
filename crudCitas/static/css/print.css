@@ -1,0 +1,66 @@
+.ghost {
+    display: none;
+}
+
+.pdf {
+    display: block;
+}
+
+.box3 {
+    grid-template-columns: 1fr;
+}
+* { overflow: visible !important; }
+.mt-4 {
+    margin-top: 0;
+}
+
+.container {
+    width: auto;
+    max-width: none;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.p-3 {
+    padding: 0;
+}
+
+.m-2 {
+    margin: 0;
+}
+
+.shadow-lg {
+    box-shadow: none;
+}
+
+:root {
+    --bs-box-shadow-lg: 0
+}
+
+.card {
+    border: none;
+}
+
+.Report{
+    display: block;
+}
+
+.R{
+    display: table;
+}
+
+h2,
+p {
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+
+}
+
+#p0 {
+    text-indent: 2em;
+}

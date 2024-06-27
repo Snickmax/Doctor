@@ -6,6 +6,7 @@ from .form import FormularioCitas
 from core.models import cita, paciente
 from django.forms import model_to_dict
 from django.template.loader import render_to_string
+import calendar
 
 @login_required(login_url='/login/')
 @never_cache
@@ -72,3 +73,15 @@ def cargar_formulario(request):
         return JsonResponse({"error": "Tipo de formulario no válido."}, status=400)
 
     return JsonResponse({"form_html": form_html, "titulo_modal": titulo_modal})
+
+@login_required(login_url='/login/')
+@never_cache
+def cita_report(request, fecha):
+    age = fecha.split("-")
+    dia = int(age[2])
+    mes = int(age[1])
+    año = int(age[0])
+    citas = cita.objects.filter(date = fecha)
+    mes = calendar.month_name[int(mes)].capitalize()
+    return render(request, 'baseReport.html', {'citas': citas, 'mes': mes, 'dia': dia, 'año': año})
+

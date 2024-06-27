@@ -1,6 +1,7 @@
 body {
     font-family: 'Nunito', sans-serif;
 }
+
 .logo {
     border: 1px solid rgb(255, 255, 255); /* Ajusta el grosor y el color del borde según tus preferencias */
     border-radius: 50%;

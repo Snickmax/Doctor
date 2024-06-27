@@ -29,33 +29,24 @@
   <script type="text/javascript" charset="utf8"
     src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="{% static 'css/table.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/loader.css' %}" />
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
-  <link rel="shortcut icon" type="image/jpg" href="{% static 'img/logo.jpg' %}">
+  <link rel="stylesheet" href="{% static 'css/nope.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/print.css' %}" media="print"/>
+  <link rel="shortcut icon" type="image/png" href="{% static 'img/logo.jpg' %}" >
 </head>
 
-<body>
+<title>Reporte</title>
+
+<body >
   <!-- Navbar -->
   {% include '_navbar.html' %}
 
-  {% block content %}
-  <!-- Contenido -->
-  {% endblock %}
+  <div class="pdf">
+    {% include 'citasReport.html' %}
+  </div>
 
-  <!-- Footer -->
-  {% include '_footer.html' %}
+  <script src="{% static 'js/print.js' %}"></script>
 
-  <!-- Custom JS -->
-  <script src="{% static 'js/login.js' %}"></script>
-  <script src="{% static 'js/logout.js' %}"></script>
-  <script src="{% static 'js/loader.js' %}"></script>
-  <script src="{% static 'js/cargar_tablaC.js' %}"></script>
-  <script src="{% static 'js/citas/cargar_form.js' %}"></script>
-  <script src="{% static 'js/citas/registrar_form.js' %}"></script>
-  <script src="{% static 'js/citas/editar_form.js' %}"></script>
-  <script src="{% static 'js/report.js' %}"></script>
 </body>
 
 </html>

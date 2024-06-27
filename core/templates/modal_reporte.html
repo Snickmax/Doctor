@@ -1,0 +1,29 @@
+<div class="modal fade" id="modalReport" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="w-100 text-center">
+          <h5 class="modal-title">
+            <i class="fa-solid fa-clipboard-user"></i> Reporte
+          </h5>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formReport" class="form">
+          <div class="mb-3">
+            <label for="date" class="form-label">Seleccione día y mes:</label>
+            <input class="form-control" type="date" id="date" required />
+          </div>
+          <div style="text-align: right">
+            <button id="submitButton" type="submit" class="btn btn-primary btn-lg">
+              <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+                style="display: none;"></span>
+              Generar reporte
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
